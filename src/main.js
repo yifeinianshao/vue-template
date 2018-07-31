@@ -2,6 +2,7 @@ import vue from 'vue'
 import axios from 'axios'
 import app from './app'
 import router from './router'
+import store from './store'
 import 'styl/reset'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons'
@@ -17,5 +18,6 @@ vue.config.productionTip = false
 new vue({
   el: '#app',
   router,
+  store,
   render: h => h(app)
 })

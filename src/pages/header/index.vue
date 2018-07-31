@@ -31,16 +31,25 @@
     .item(v-for="menu, index in MENUS", :key="index", v-if="menu.isMenu")
       router-link.title(:class="{ 'active': menu.routeName === $route.name }", :to="{ name: menu.routeName }")
         font-awesome-icon(:icon="['fas', menu.icon]")
-        span {{ menu.title }}
+        span(@click="increment") {{ menu.title }}-{{ shop }}
 </template>
 
 <script>
 import MENUS from 'src/enums/MENUS'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
       MENUS
     }
+  },
+  computed: mapState({
+    shop: state => state.shop.count
+  }),
+  methods: {
+    ...mapMutations('shop', [
+      'increment'
+    ])
   }
 }
 </script>
