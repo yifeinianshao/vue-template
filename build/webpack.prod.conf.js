@@ -31,7 +31,7 @@ module.exports = merge(baseConf, {
       root: path.resolve(__dirname, '..')
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash:7].css'
+      filename: 'styles/[name].[hash:7].css'
     }),
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({
