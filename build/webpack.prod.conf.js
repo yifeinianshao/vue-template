@@ -7,41 +7,41 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const baseConf = require('./webpack.base.conf')
 
 module.exports = merge(baseConf, {
-  mode: 'production',
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-      },
-      {
-        test: /\.styl(us)?$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
-      }
+    mode: 'production',
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.styl(us)?$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
+            }
+        ]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: 'vendors'
+        }
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            root: path.resolve(__dirname, '..')
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].[hash:7].css'
+        }),
+        new OptimizeCssAssetsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: path.resolve(__dirname, '../dist/index.html'),
+            template: 'index.html',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            }
+        })
     ]
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      name: 'vendors'
-    }
-  },
-  plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: path.resolve(__dirname, '..')
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'styles/[name].[hash:7].css'
-    }),
-    new OptimizeCssAssetsPlugin(),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, '../dist/index.html'),
-      template: 'index.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      }
-    })
-  ]
 })
