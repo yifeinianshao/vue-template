@@ -19,7 +19,7 @@ module.exports = {
         alias: {
             'src': resolve('src'),
             'styl': resolve('src/assets/stylus'),
-            'img': resolve('src/assets/images')
+            'img': resolve('src/assets/image')
         }
     },
     module: {
