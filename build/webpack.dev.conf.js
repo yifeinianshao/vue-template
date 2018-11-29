@@ -6,6 +6,7 @@ const { port } = require('../config')
 
 const devWebpackConfig = merge(baseConf, {
     mode: 'development',
+    devtool: 'inline-source-map',
     devServer: {
         compress: true,
         https: false,

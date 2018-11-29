@@ -8,6 +8,7 @@ const baseConf = require('./webpack.base.conf')
 
 module.exports = merge(baseConf, {
     mode: 'production',
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -35,7 +36,7 @@ module.exports = merge(baseConf, {
         }),
         new OptimizeCssAssetsPlugin(),
         new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, '../dist/index.html'),
+            filename: path.resolve(__dirname, '..', 'dist/index.html'),
             template: 'index.html',
             minify: {
                 removeComments: true,
