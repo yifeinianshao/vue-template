@@ -31,6 +31,7 @@
         "optimize-css-assets-webpack-plugin": "^5.0.0",
         "portfinder": "^1.0.17",
         "postcss-loader": "^2.1.6",
+        "postcss-pxtorem": "^4.0.1",
         "pug": "^2.0.3",
         "pug-plain-loader": "^1.0.0",
         "style-loader": "^0.21.0",
