@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const baseConf = require('./webpack.base.conf')
+const { production } = require('../config')
 
 module.exports = merge(baseConf, {
     mode: 'production',
@@ -28,7 +29,7 @@ module.exports = merge(baseConf, {
         }
     },
     plugins: [
-        new CleanWebpackPlugin(['dist'], {
+        new CleanWebpackPlugin([production.outputFile], {
             root: path.resolve(__dirname, '..')
         }),
         new MiniCssExtractPlugin({
@@ -36,7 +37,7 @@ module.exports = merge(baseConf, {
         }),
         new OptimizeCssAssetsPlugin(),
         new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, '..', 'dist/index.html'),
+            filename: path.resolve(__dirname, '..', `${production.outputFile}/index.html`),
             template: 'index.html',
             minify: {
                 removeComments: true,

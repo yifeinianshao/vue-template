@@ -1,3 +1,8 @@
 module.exports = {
-    port: 8080
+    development: {
+        port: 8080
+    },
+    production: {
+        outputFile: 'dist'
+    }
 }

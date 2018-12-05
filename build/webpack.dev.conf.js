@@ -2,7 +2,7 @@ const merge = require('webpack-merge')
 const portfinder = require('portfinder')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseConf = require('./webpack.base.conf')
-const { port } = require('../config')
+const { development } = require('../config')
 
 const devWebpackConfig = merge(baseConf, {
     mode: 'development',
@@ -10,7 +10,7 @@ const devWebpackConfig = merge(baseConf, {
     devServer: {
         compress: true,
         https: false,
-        port,
+        port: development.port,
         open: false,
         proxy: {}
     },
@@ -34,7 +34,7 @@ const devWebpackConfig = merge(baseConf, {
 })
 
 module.exports = new Promise((resolve, reject) => {
-    portfinder.basePort = port
+    portfinder.basePort = development.port
     portfinder.getPort((err, newPort) => {
         if (err) {
             reject(err)

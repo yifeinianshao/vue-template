@@ -1,5 +1,6 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const { production } = require('../config')
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -10,7 +11,7 @@ module.exports = {
         app: './src/main.js'
     },
     output: {
-        path: resolve('dist'),
+        path: resolve(production.outputFile),
         filename: 'scripts/[name].[hash:7].js',
         publicPath: '/'
     },
