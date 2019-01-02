@@ -12,6 +12,7 @@ const devWebpackConfig = merge(baseConf, {
         https: false,
         port: development.port,
         open: false,
+        historyApiFallback: true,
         proxy: {}
     },
     module: {
