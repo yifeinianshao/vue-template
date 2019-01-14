@@ -1,8 +1,8 @@
-import vue from 'vue'
-import vueRouter from 'vue-router'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-vue.use(vueRouter)
+Vue.use(VueRouter)
 
-export default new vueRouter({
-
+export default new VueRouter({
+    mode: 'history'
 })

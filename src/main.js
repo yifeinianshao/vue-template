@@ -1,17 +1,17 @@
-import vue from 'vue'
-import app from './app'
+import Vue from 'vue'
+import App from './app'
 import router from './router'
 import store from './store'
 import axios from './utils/axios'
-import 'styl/reset'
+import 'styl'
 
-vue.prototype.$axios = axios
+Vue.prototype.$axios = axios
 
-vue.config.productionTip = false
+Vue.config.productionTip = false
 
-new vue({
+new Vue({
     el: '#app',
     router,
     store,
-    render: h => h(app)
+    render: h => h(App)
 })
