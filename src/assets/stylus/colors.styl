@@ -1,0 +1,10 @@
+$colors = {
+    primary: #4A90E2,
+    success: #417505,
+    danger: #F56C6C
+}
+
+getColors($prefix)
+    for $color, $hex in $colors
+        .{$prefix}--{$color}
+            color $hex

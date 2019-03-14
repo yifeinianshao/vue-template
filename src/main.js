@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import axios from './utils/axios'
-import 'styl'
+import 'styl/reset'
 
 Vue.prototype.$axios = axios
 
